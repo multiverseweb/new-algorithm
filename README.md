@@ -10,6 +10,6 @@ Join the conversation and share your ideas in [GitHub Discussions](https://githu
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE.md).
+This project is licensed under the [MIT License](LICENSE).
 
 ---
