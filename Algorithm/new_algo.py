@@ -167,12 +167,28 @@ class GraphApp:
     def update_graph(self):
         new_graph = {}
         for node, (neighbor_entry, weight_entry) in self.entries.items():
-            neighbors = neighbor_entry.get().split(',')
-            weights = weight_entry.get().split(',')
-            new_graph[node] = [(int(neighbor), int(weight)) for neighbor, weight in zip(neighbors, weights)]
-        
+            # Get and sanitize input
+            neighbors = neighbor_entry.get().strip().split(',')
+            weights = weight_entry.get().strip().split(',')
+            
+            # Check if the lengths match and all entries are valid integers
+            if len(neighbors) != len(weights):
+                messagebox.showerror("Error", f"Number of neighbors and weights must match for node {node}.")
+                return
+
+            try:
+                new_graph[node] = [
+                    (int(neighbor.strip()), int(weight.strip()))
+                    for neighbor, weight in zip(neighbors, weights)
+                    if neighbor.strip() and weight.strip()
+                ]
+            except ValueError:
+                messagebox.showerror("Error", f"Invalid input for node {node}. Please ensure all neighbors and weights are integers.")
+                return
+
         self.graph = new_graph
         self.draw_graph()
+
 
     def draw_graph(self):
         self.ax.clear()
