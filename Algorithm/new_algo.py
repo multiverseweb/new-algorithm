@@ -1,3 +1,17 @@
+'''
+Design and Analysis of Algorithms
+Project Based Learning
+
+Project Name: Hybrid Algorithm (Combining A* and Bellman–Ford Algorithm)
+
+Submitted By:
+Tejas Gupta - 2214110069
+Ojas Gupta - 2214110070
+
+Project guide: Dr. Bindu Garg
+'''
+#==============================================================================================================================================
+
 import tkinter as tk
 from tkinter import ttk, messagebox
 import random
@@ -63,17 +77,21 @@ def heuristic(node, goal):
 class GraphApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("Graph GUI")
+        self.root.title("Hybrid Algorithm (Bellman-Ford and A* Algorithm)")
         self.graph = {}
         self.nodes = []
 
         self.main_frame = tk.Frame(root)
         self.main_frame.pack(fill=tk.BOTH, expand=True)
-        self.title_label = tk.Label(self.main_frame, text="Bellman-Ford and A* Algorithm\n(New Path Finding Algorithm)", font=('Arial', 20))
+
+        self.heading = tk.Label(self.main_frame, text="Design and Analysis of Algorithms\nProject Based Learning", font=('Arial', 20))
+        self.heading.grid(row=0, column=1, padx=5, pady=5)
+
+        self.title_label = tk.Label(self.main_frame, text="Bellman-Ford and A* Algorithm\n(Hybrid Path Finding Algorithm)", font=('Arial', 20))
         self.title_label.grid(row=1, column=5, padx=5, pady=50)
 
         self.node_count_label = tk.Label(self.main_frame, text="Number of nodes:", font=('Arial', 12))
-        self.node_count_label.grid(row=2, column=0, padx=5, pady=5)
+        self.node_count_label.grid(row=2, column=0, padx=20, pady=5)
         self.node_count_entry = tk.Entry(self.main_frame, font=('Arial', 12))
         self.node_count_entry.grid(row=2, column=1, padx=5, pady=5)
         
@@ -108,6 +126,8 @@ class GraphApp:
         self.path_display.grid(row=7, column=1, columnspan=2, padx=5, pady=5)
 
         self.fig, self.ax = plt.subplots(figsize=(8, 6))
+        self.ax.set_title("Graph Visualisation")
+        self.ax.axis('off')
         self.canvas_figure = FigureCanvasTkAgg(self.fig, master=self.main_frame)
         self.canvas_figure.get_tk_widget().grid(row=2, column=5, rowspan=6, padx=5, pady=5, sticky=tk.NSEW)
 
