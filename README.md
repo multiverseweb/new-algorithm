@@ -6,7 +6,7 @@ I want to develop a **new algorithm** for my university project. I have intermed
 
 ## Discussions
 
-Join the conversation and share your ideas in [GitHub Discussions](https://github.com/multiverseweb/new-algorithm/discussions).
+Join the conversation and share your ideas in [GitHub Discussions](https://github.com/tjiuce/new-algorithm/discussions).
 
 ## License
 
